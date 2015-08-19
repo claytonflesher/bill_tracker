@@ -43,7 +43,7 @@ group :development, :test do
   gem 'spring'
 
   # Test with RSpec
-  gem "rspec-rails", "~> 3.0"
+  gem "rspec-rails", "~> 3.3.3"
 
   # Use pry in console
   gem 'pry-rails'
