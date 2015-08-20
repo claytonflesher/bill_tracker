@@ -44,6 +44,7 @@ group :development, :test do
 
   # Test with RSpec
   gem "rspec-rails", "~> 3.3.3"
+  gem "factory_girl_rails", "~>4.5.0"
 
   # Use pry in console
   gem 'pry-rails'
