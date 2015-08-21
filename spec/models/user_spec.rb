@@ -44,4 +44,10 @@ RSpec.describe User, type: :model do
     expect(user.authenticate("password")).to be_truthy
     expect(user.authenticate("123")).to      be_falsey
   end
+
+  it "makes sure the street address is present" do
+    user = User.new(address: nil)
+    expect(user).not_to                             be_valid
+    expect(user.errors[:address]).not_to be_empty
+  end
 end
