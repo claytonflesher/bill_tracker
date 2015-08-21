@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>BillTracker</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <% %i[alert notice].each do |type| %>
-    <% if flash[type] %>
-      <div class="flash<%= type %>"<%= flash[type] %></div>
+  <head>
+    <title>BillTracker</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <% %i[alert notice].each do |type| %>
+      <% if flash[type] %>
+        <div class="flash<%= type %>"<%= flash[type] %></div>
+      <% end %>
     <% end %>
-  <% end %>
 
-<%= yield %>
+    <%= yield %>
 
-</body>
+  </body>
 </html>
