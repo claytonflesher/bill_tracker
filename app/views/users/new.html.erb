@@ -21,6 +21,9 @@
 
     <dt><%= f.label          :password_confirmation, "Confirm" %></dt>
     <dd><%= f.password_field :password_confirmation %></dd>
+
+    <dt><%= f.label      :address, "Home Address" %></dt>
+    <dd><%= f.text_field :address %></dd>
   </dl>
 
   <%= f.submit "Sign Up" %>
