@@ -5,7 +5,10 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by(email: params[:email])
+    @user = User.where(
+      "email = ? AND verified_at IS NOT NULL", 
+      params[:email]
+    ).first
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
       redirect_to root_path
