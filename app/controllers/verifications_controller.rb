@@ -1,6 +1,9 @@
 require "securerandom"
 
 class VerificationsController < ApplicationController
+  skip_before_filter :ensure_signed_in
+  before_filter      :ensure_not_signed_in
+
   def new
     @user                    = User.find(params[:user_id])
     @user.verification_token = SecureRandom.hex(20)

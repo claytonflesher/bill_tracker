@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get "signin"                => "sessions#new",        as: :signin
   post "signin"               => "sessions#create"
   get "verify/:user_id"       => "verifications#new",   as: :verify
-  get "verify/confirm/:token" => "verifcations#create", as: :confirm
+  get "verify/confirm/:token" => "verifications#create", as: :confirm
 
 
 
