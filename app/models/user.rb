@@ -10,4 +10,6 @@ class User < ActiveRecord::Base
 
   validates :address,
             presence: true
+
+  has_many :bills
 end
