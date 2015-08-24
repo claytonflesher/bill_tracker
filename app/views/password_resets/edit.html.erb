@@ -1,0 +1,13 @@
+<h1>Reset Password</h1>
+
+<%= form_tag do %>
+  <dl>
+    <dt><%= label_tag          :password %></dt>
+    <dd><%= password_field_tag :password %></dd>
+
+    <dt><%= label_tag          :password_confirmation, "Confirm" %></dt>
+    <dd><%= password_field_tag :password_confirmation %></dd>
+  </dl>
+
+  <%= submit_tag %>
+<% end %>

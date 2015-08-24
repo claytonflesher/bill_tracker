@@ -5,4 +5,9 @@ class UserMailer < ApplicationMailer
     @user = user
     mail to: @user.email, subject: "[BillTracker] Verify Email"
   end
+
+  def reset_password(user)
+    @user = user
+    mail to: user.email, subject: "[BillTracker] Reset Password"
+  end
 end
