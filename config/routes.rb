@@ -6,9 +6,9 @@ Rails.application.routes.draw do
   post   "signin"                     => "sessions#create"
   delete "signout"                    => "sessions#destroy"
   get    "reset_password"             => "password_resets#new",    as: :reset_password
-  post   "reset_password"             => "password_resets"
-  get    "reset_password/:token"      => "password_resets#edit"
-  post   "reset_password/:token"      => "password_resets#update"
+  post   "reset_password"             => "password_resets#create"
+  get    "reset_password/:token/edit" => "password_resets#edit"
+  post   "reset_password/:token/edit" => "password_resets#update"
   get    "verify/:user_id"            => "verifications#new",      as: :verify
   get    "verify/confirm/:token"      => "verifications#create",   as: :confirm
 

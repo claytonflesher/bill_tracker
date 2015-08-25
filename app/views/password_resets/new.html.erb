@@ -2,23 +2,11 @@
 
 <p>Please enter your email address in the form below. A new password will be sent to your email inbox, with a link to reset your password.</p>
 
-<%= form_for(@user, url: reset_password_path do |f| %>
-  <% unless f.object.errors.empty? %>
-    <h2>Errors</h2>
-    <ul>
-      <% f.object.errors.full_messages.each do |error| %>
-        <li><%= error %></li>
-      <% end %>
-    </ul>
-  <% end %>
-
+<%= form_tag do %>
   <dl>
-    <dt><%= f.label          :password, "New Password" %></dt>
-    <dd><%= f.password_field :password %></dt>
-
-    <dt><%= f.label          :password_confirmation, "Confirm" %></dt>
-    <dd><%= f.password_field :password_confirmation %></dd>
+    <dt><%= label_tag      :email%></dt>
+    <dd><%= text_field_tag :email %></dt>
   </dl>
 
-  <%= f.submit "Reset Password" %>
+  <%= submit_tag %>
 <% end %>
