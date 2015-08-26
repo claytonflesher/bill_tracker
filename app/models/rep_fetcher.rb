@@ -19,7 +19,7 @@ class RepFetcher
   private
 
   def fetch_reps
-    uri = "http://openstates.org/api/v1/legislators/geo/?lat=#{lat}&long=#{long}&apikey=#{OPAPI}"
+    uri = "http://openstates.org/api/v1/legislators/geo/?lat=#{lat}&long=#{long}&apikey=#{Key.find_by("open_states").key}"
     JSON.parse(open(uri).read)
   end
 
