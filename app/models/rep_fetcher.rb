@@ -1,15 +1,14 @@
 require "open-uri"
 require "json"
-class StateFetcher
-  def initialize(long:, lat:)
-    @long          = long
-    @lat           = lat
+class RepFetcher
+  def initialize(user)
+    @long          = user.longitude
+    @lat           = user.latitude
     @reps          = fetch_reps
     @represenative = build_rep("lower")
     @senator       = build_rep("upper")
   end
 
-  URI = "http://openstates.org/api/v1/legislators/geo/?lat=#{lat}&long=#{long}&apikey=#{OPAPI}")
 
   attr_reader :long, :lat, :reps, :represenative, :senator
   private     :long, :lat, :reps
@@ -20,7 +19,8 @@ class StateFetcher
   private
 
   def fetch_reps
-    JSON.parse(open(URI).read)
+    uri = "http://openstates.org/api/v1/legislators/geo/?lat=#{lat}&long=#{long}&apikey=#{OPAPI}"
+    JSON.parse(open(uri).read)
   end
 
   def build_rep(chamber)
