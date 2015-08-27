@@ -12,5 +12,4 @@ class User < ActiveRecord::Base
             presence: true
 
   has_many :bills
-
 end
