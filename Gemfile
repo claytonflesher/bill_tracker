@@ -46,9 +46,10 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 
-  # Test with RSpec
+  # Test with RSpec, fabulously
   gem "rspec-rails", "~> 3.3.3"
   gem "factory_girl_rails", "~>4.5.0"
+  gem 'rspec-pride', '~> 3.1.0'
 
   # Use pry in console
   gem 'pry-rails'
