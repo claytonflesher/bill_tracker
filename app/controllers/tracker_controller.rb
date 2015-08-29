@@ -6,6 +6,7 @@ class TrackerController < ApplicationController
 
   def create
     @bill = Bill.new(bill_params)
+    normalize_input
     @bill.user_id = session[:user_id]
     @bill.save!
     redirect_to "/"
@@ -15,5 +16,9 @@ class TrackerController < ApplicationController
 
   def bill_params
     params.require(:bill).permit(:name)
+  end
+
+  def normalize_input
+    @bill.name = bill_params[:name].gsub(/[\s]/, "")
   end
 end
