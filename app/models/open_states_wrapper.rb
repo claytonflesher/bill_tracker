@@ -12,10 +12,7 @@ class OpenStatesWrapper
 
   def self.arrange_parameters(url_parameters)
     results = "?apikey=#{ENV["API_KEY"]}"
-    url_parameters.each do |key, value|
-      results = results + "&" + ERB::Util.u(key) + "=" + ERB::Util.u(value)
-    end
-    results
+    url_parameters.inject(results) { |memo, (k, v)| "#{memo}&#{ERB::Util.u(k)}=#{ERB::Util.u(v)}" }
   end
 
   def self.uri
