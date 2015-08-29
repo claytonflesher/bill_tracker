@@ -5,5 +5,7 @@ FactoryGirl.define do
     password_confirmation { |u| u.password }
     verified_at { Time.now }
     address "111 E Bay St., OKC, OK 73120"
+    house_district "5"
+    senate_district "10"
   end
 end
