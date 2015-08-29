@@ -66,6 +66,6 @@ class Legislator
   private
 
   def filter(json)
-    json.bsearch { |legislator| legislator["chamber"] == chamber }
+    json.select { |legislator| legislator["chamber"] == chamber }.first
   end
 end
