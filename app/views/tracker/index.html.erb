@@ -1,19 +1,5 @@
 <h1>Bill Tracker Dashboard</h1>
 <h2>Welcome.</h2>
-<p>Your current subscriptions:</p>
-<ul>
-  <% @user.bills.each do |bill| %>
-    <li><%= bill.name %>
-    <li>most recent action:</li>
-    <ul>
-      <li><%= bill.description[-4] %></li>
-      <li><%= bill.description[-2] %></li>
-    </ul>
-    <%= button_to "Unsubscribe", { action: "delete", id: bill.id },
-                                                       method: :delete, data: { confirm: "Are you sure?" } %></li>
-    <br>
-  <% end %>
-</ul>
 
 <%= form_for(@bill, url: subscribe_path) do |f| %>
   <% unless f.object.errors.empty? %>
@@ -32,9 +18,25 @@
     <li>So, House Bill 1001 would be HB1001</li>
   </ul>
   <dl>
-    <dt><%= f.label      :name %></dt>
+    <dt><%= f.label      :name, "Bill Name" %></dt>
     <dd><%= f.text_field :name %></dt>
   </dl>
 
   <%= f.submit "Subscribe" %>
 <% end %>
+<br>
+<p>Your current subscriptions:</p>
+<ul>
+  <% @user.bills.each do |bill| %>
+    <li><%= bill.name %>
+    <li>most recent action:</li>
+    <ul>
+      <li><%= bill.description[-4] %></li>
+      <li><%= bill.description[-2] %></li>
+    </ul>
+    <%= button_to "Unsubscribe", { action: "delete", id: bill.id },
+                                                       method: :delete, data: { confirm: "Are you sure?" } %></li>
+    <br>
+  <% end %>
+</ul>
+
