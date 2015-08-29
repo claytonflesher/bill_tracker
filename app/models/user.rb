@@ -11,5 +11,11 @@ class User < ActiveRecord::Base
   validates :address,
             presence: true
 
+  validates :house_district,
+            presence: true
+
+  validates :senate_district,
+            presence: true
+
   has_many :bills
 end

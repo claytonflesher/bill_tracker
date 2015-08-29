@@ -1,27 +1,26 @@
 require "open-uri"
 require "json"
+require "erb"
 class OpenStatesWrapper
 
   def self.call(call_type:, url_parameters: {})
-    uri = "http://openstates.org/api/v1/"
-    parameters = self.get_parameters(url_parameters)
-    case call_type
-    when :geo_lookup
-      url = "legislators/geo#{parameters}"
-    end
-    query = uri + url
+    parameters = arrange_parameters(url_parameters)
+    url        = call_types(parameters: parameters)[call_type]
+    query      = uri + url
     JSON.parse(open(query).read)
   end
 
-  private
-
-  def self.get_parameters(url_parameters)
+  def self.arrange_parameters(url_parameters)
     results = "?apikey=#{ENV["API_KEY"]}"
-    unless url_parameters.empty?
-      url_parameters.each do |key, value|
-        results = results + "&" + key + "=" + value
-      end
-    end
-    results
+    url_parameters.inject(results) { |memo, (k, v)| "#{memo}&#{ERB::Util.u(k)}=#{ERB::Util.u(v)}" }
   end
+
+  def self.uri
+    "http://openstates.org/api/v1/"
+  end
+
+  def self.call_types(parameters:)
+    {geo_lookup: "legislators/geo#{parameters}"}
+  end
+  private_class_method :arrange_parameters, :uri, :call_types
 end

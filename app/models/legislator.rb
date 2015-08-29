@@ -1,16 +1,71 @@
 class Legislator
-  def initalize(rep)
-    @first_name    = rep["first_name"]
-    @middle_name   = rep["middle_name"]
-    @last_name     = rep["last_name"]
-    @district      = rep["district"]
-    @state         = rep["state"]
-    @committees    = rep["roles"].map { |role| role["committee"] }.compact
-    @email         = rep["email"]
-    @party         = rep["party"]
+  def initialize(json:, chamber:)
+    @chamber  = chamber.to_s
+    @rep_data = filter(json)
   end
 
-  attr_reader :first_name, :middle_name, :last_name,
-              :district, :state, :committees
-              :email, :party
+  attr_reader :rep_data, :chamber
+  private     :rep_data
+
+  def first_name
+    rep_data["first_name"]
+  end
+
+  def middle_name
+    rep_data["middle_name"]
+  end
+
+  def last_name
+    rep_data["last_name"]
+  end
+
+  def full_name
+    rep_data["full_name"]
+  end
+
+  def district
+    rep_data["district"]
+  end
+
+  def state
+    rep_data["state"]
+  end
+
+  def committees
+    rep_data["roles"].map { |role| role["committee"] }.compact
+  end
+
+  def email
+    rep_data["email"]
+  end
+
+  def party
+    rep_data["party"]
+  end
+
+  def leg_id
+    rep_data["leg_id"]
+  end
+
+  def url
+    rep_data["url"]
+  end
+
+  def fax
+    rep_data["offices"].first["fax"]
+  end
+
+  def phone
+    rep_data["offices"].first["phone"]
+  end
+
+  def address
+    rep_data["offices"].first["address"]
+  end
+
+  private
+
+  def filter(json)
+    json.select { |legislator| legislator["chamber"] == chamber }.first
+  end
 end

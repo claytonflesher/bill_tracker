@@ -36,6 +36,13 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Use RSpec Pride to have fabulous test results
+gem 'rspec-pride', '~> 3.1.0', group: :test
+
+# Use bullet to spot N+1 errors
+gem 'bullet', '~> 4.14.7', group: :development
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -46,11 +53,13 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 
-  # Test with RSpec
+  # Test with RSpec, fabulously
   gem "rspec-rails", "~> 3.3.3"
   gem "factory_girl_rails", "~>4.5.0"
 
   # Use pry in console
   gem 'pry-rails'
+
+
 end
 
