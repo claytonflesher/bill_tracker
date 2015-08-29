@@ -53,5 +53,8 @@ group :development, :test do
 
   # Use pry in console
   gem 'pry-rails'
+
+  # Use bullet to spot N+1 errors
+  gem 'bullet', '~> 4.14.7'
 end
 
