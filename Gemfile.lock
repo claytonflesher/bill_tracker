@@ -41,9 +41,6 @@ GEM
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     builder (3.2.2)
-    bullet (4.14.7)
-      activesupport (>= 3.0.0)
-      uniform_notifier (~> 1.9.0)
     byebug (6.0.2)
     coderay (1.1.0)
     coffee-rails (4.1.0)
@@ -125,10 +122,6 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rake (10.4.2)
     rdoc (4.2.0)
-    rspec (3.3.0)
-      rspec-core (~> 3.3.0)
-      rspec-expectations (~> 3.3.0)
-      rspec-mocks (~> 3.3.0)
     rspec-core (3.3.2)
       rspec-support (~> 3.3.0)
     rspec-expectations (3.3.1)
@@ -137,8 +130,6 @@ GEM
     rspec-mocks (3.3.2)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.3.0)
-    rspec-pride (3.1.0)
-      rspec (~> 3.0)
     rspec-rails (3.3.3)
       actionpack (>= 3.0, < 4.3)
       activesupport (>= 3.0, < 4.3)
@@ -176,7 +167,6 @@ GEM
     uglifier (2.7.1)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
-    uniform_notifier (1.9.0)
     web-console (2.2.1)
       activemodel (>= 4.0)
       binding_of_caller (>= 0.7.2)
@@ -188,7 +178,6 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt (~> 3.1.7)
-  bullet (~> 4.14.7)
   byebug
   coffee-rails (~> 4.1.0)
   dotenv-rails
@@ -199,7 +188,6 @@ DEPENDENCIES
   pg
   pry-rails
   rails (= 4.2.3)
-  rspec-pride (~> 3.1.0)
   rspec-rails (~> 3.3.3)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

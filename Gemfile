@@ -49,12 +49,9 @@ group :development, :test do
   # Test with RSpec, fabulously
   gem "rspec-rails", "~> 3.3.3"
   gem "factory_girl_rails", "~>4.5.0"
-  gem 'rspec-pride', '~> 3.1.0'
 
   # Use pry in console
   gem 'pry-rails'
 
-  # Use bullet to spot N+1 errors
-  gem 'bullet', '~> 4.14.7'
 end
 
