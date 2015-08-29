@@ -36,6 +36,13 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Use RSpec Pride to have fabulous test results
+gem 'rspec-pride', '~> 3.1.0', group: :test
+
+# Use bullet to spot N+1 errors
+gem 'bullet', '~> 4.14.7', group: :development
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -52,6 +59,7 @@ group :development, :test do
 
   # Use pry in console
   gem 'pry-rails'
+
 
 end
 
