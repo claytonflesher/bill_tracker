@@ -5,10 +5,11 @@ class TrackerController < ApplicationController
   end
 
   def create
-    @bill = Bill.new(bill_params)
+    @bill             = Bill.new(bill_params)
     normalize_input
-    @bill.user_id = session[:user_id]
-    @bill.save!
+    @bill.description = BillsWrapper.call(bill_name: @bill.name)
+    @bill.user_id     = session[:user_id]
+    @bill.save
     redirect_to "/"
   end
 
