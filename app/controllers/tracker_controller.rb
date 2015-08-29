@@ -26,6 +26,6 @@ class TrackerController < ApplicationController
   end
 
   def normalize_input
-    @bill.name = bill_params[:name].gsub(/[\s]/, "")
+    @bill.name = bill_params[:name].gsub(/[\s]/, "").upcase
   end
 end
