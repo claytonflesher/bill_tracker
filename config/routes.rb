@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   post   "reset_password/:token/edit" => "password_resets#update"
   get    "verify/:user_id"            => "verifications#new",      as: :verify
   get    "verify/confirm/:token"      => "verifications#create",   as: :confirm
+  post   "/"                          => "tracker#create",          as: :subscribe
 
 
 
