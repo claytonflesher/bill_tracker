@@ -13,6 +13,12 @@ class TrackerController < ApplicationController
     redirect_to "/"
   end
 
+  def delete
+    @bill = Bill.find(params[:id])
+    @bill.destroy
+    redirect_to "/"
+  end
+
   private
 
   def bill_params

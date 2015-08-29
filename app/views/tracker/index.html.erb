@@ -2,7 +2,15 @@
 <p>Welcome to the bill tracker.</p>
 <ul>
   <% @user.bills.each do |bill| %>
-    <li><%= bill.name %></li>
+    <li><%= bill.name %>
+    <li>most recent action:</li>
+    <ul>
+      <li><%= bill.description[-4] %></li>
+      <li><%= bill.description[-2] %></li>
+    </ul>
+    <%= button_to "Unsubscribe", { action: "delete", id: bill.id },
+                                                       method: :delete, data: { confirm: "Are you sure?" } %></li>
+    <br>
   <% end %>
 </ul>
 
