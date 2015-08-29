@@ -1,10 +1,10 @@
 class Legislator
   def initialize(json:, chamber:)
-    @chamber = chamber.to_s
-    @rep_data        = filter(json)
+    @chamber  = chamber.to_s
+    @rep_data = filter(json)
   end
 
-  attr_reader :rep_data
+  attr_reader :rep_data, :chamber
   private     :rep_data
 
   def first_name
@@ -52,20 +52,20 @@ class Legislator
   end
 
   def fax
-    rep_data["offices"]["fax"]
+    rep_data["offices"].first["fax"]
   end
 
   def phone
-    rep_data["offices"]["phone"]
+    rep_data["offices"].first["phone"]
   end
 
   def address
-    rep_data["offices"]["address"]
+    rep_data["offices"].first["address"]
   end
 
   private
 
   def filter(json)
-    json.select { |legislator| legislator["chamber"] == chamber }
+    json.bsearch { |legislator| legislator["chamber"] == chamber }
   end
 end
