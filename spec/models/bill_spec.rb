@@ -16,7 +16,7 @@ RSpec.describe Bill, type: :model do
   it "ensure the bill is unique to that user" do
     # Write a test that checks for uniquess of name
     # scoped to user_id 
-    skip
+    skip "Test still needs to be written"
   end
 
   it "ensures the user_id is present" do
