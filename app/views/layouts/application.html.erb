@@ -16,7 +16,7 @@
 
     <% %i[alert notice].each do |type| %>
       <% if flash[type] %>
-        <div class="flash_<%= type %>"<%= flash[type] %></div>
+        <div class="flash_<%= type %>"><%= flash[type] %></div>
       <% end %>
     <% end %>
 
