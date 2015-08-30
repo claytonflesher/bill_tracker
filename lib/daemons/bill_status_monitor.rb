@@ -15,10 +15,9 @@ Signal.trap("TERM") do
 end
 
 while($running) do
-  
-  Delayed::Job.enqueue UpdatesTrackerJob.new
-  Rails.logger.auto_flushing = true
-  Rails.logger.info "This daemon is still running at #{Time.now}.\n"
-  
-  sleep 10
+    Delayed::Job.enqueue UpdatesTrackerJob.new
+    Rails.logger.auto_flushing = true
+    Rails.logger.info "This daemon is still running at #{Time.now}.\n"
+
+    sleep 10
 end
