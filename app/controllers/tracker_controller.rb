@@ -9,8 +9,13 @@ class TrackerController < ApplicationController
     normalize_input
     @bill.description = BillsWrapper.call(bill_name: @bill.name)
     @bill.user_id     = session[:user_id]
-    @bill.save
-    redirect_to "/"
+    if @bill.save
+      flash[:notice] = "Successfully subscribed to #{@bill.name}."
+      redirect_to "/"
+    else
+      flash[:alert]  = "Not a valid bill number"
+      redirect_to "/"
+    end
   end
 
   def delete
