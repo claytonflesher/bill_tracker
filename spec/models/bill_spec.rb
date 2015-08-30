@@ -14,11 +14,20 @@ RSpec.describe Bill, type: :model do
   end
 
   it "ensure the bill is unique to that user" do
-    bill1      = FactoryGirl.create(:bill)
-    bill1.user = FactoryGirl.create(:user)
-    bill2      = Bill.new(name: bill1.name)
-    bill1.user = bill1.user
-    expect(bill1).to                   be_valid
-    expect(bill2).not_to               be_valid
+    # Write a test that checks for uniquess of name
+    # scoped to user_id 
+    skip
+  end
+
+  it "ensures the user_id is present" do
+    bill = Bill.new(user_id: nil)
+    expect(bill).not_to                  be_valid
+    expect(bill.errors[:user_id]).not_to be_empty
+  end
+
+  it "ensures the description is present" do
+    bill = Bill.new(description: nil)
+    expect(bill).not_to                      be_valid
+    expect(bill.errors[:description]).not_to be_empty
   end
 end
