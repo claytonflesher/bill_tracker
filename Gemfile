@@ -37,7 +37,7 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'capistrano-rails', group: :development
 
 # Use RSpec Pride to have fabulous test results
-gem 'rspec-pride', '~> 3.1.0', group: :test
+#gem 'rspec-pride', '~> 3.1.0', group: :test
 
 # Use bullet to spot N+1 errors
 gem 'bullet', '~> 4.14.7', group: :development

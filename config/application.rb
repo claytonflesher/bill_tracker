@@ -29,5 +29,6 @@ module BillTracker
 
     config.action_mailer.default_url_options = {host: "billtracker.com"}
     config.active_job.queue_adapter = :delayed_job
+    config.active_job.queue_name_prefix = Rails.env
   end
 end
