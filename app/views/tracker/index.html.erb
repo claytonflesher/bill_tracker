@@ -27,7 +27,7 @@
 <br>
 <p>Your current subscriptions:</p>
 <ul>
-  <% @user.bills.each do |bill| %>
+  <% @bills.each do |bill| %>
     <li><%= bill.name %>
     <li>most recent action:</li>
     <ul>
@@ -40,3 +40,4 @@
   <% end %>
 </ul>
 
+<%= will_paginate @bills %>
