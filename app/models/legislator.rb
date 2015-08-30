@@ -51,10 +51,6 @@ class Legislator
     rep_data["url"]
   end
 
-  def fax
-    rep_data["offices"].first["fax"]
-  end
-
   def phone
     rep_data["offices"].first["phone"]
   end

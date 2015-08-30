@@ -3,6 +3,7 @@ class SessionsController < ApplicationController
   before_filter      :ensure_not_signed_in, except: :destroy
 
   def new
+    @user = User.new
   end
 
   def create

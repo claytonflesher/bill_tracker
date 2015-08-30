@@ -12,14 +12,15 @@
         Signed in as <%= current_user.email %> |
         <%= link_to "Sign Out", signout_path, method: "DELETE" %>
       </div>
-      <% [:alert, :notice].each do |type| %>
-        <% if flash[type] %>
-          <div class="flash<%= type %>"<%= flash[type] %></div>
-        <% end %>
+    <% end %>
+
+    <% %i[alert notice].each do |type| %>
+      <% if flash[type] %>
+        <div class="flash_<%= type %>"<%= flash[type] %></div>
       <% end %>
     <% end %>
 
-      <%= yield %>
+    <%= yield %>
 
   </body>
 </html>

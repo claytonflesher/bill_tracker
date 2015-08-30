@@ -42,6 +42,9 @@ gem 'rspec-pride', '~> 3.1.0', group: :test
 # Use bullet to spot N+1 errors
 gem 'bullet', '~> 4.14.7', group: :development
 
+# Use Nokogiri to parse HTML
+gem 'nokogiri', '~> 1.6.6.2'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
