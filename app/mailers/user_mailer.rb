@@ -10,4 +10,10 @@ class UserMailer < ApplicationMailer
     @user = user
     mail to: @user.email, subject: "[BillTracker] Reset Password"
   end
+
+  def send_update(user:, bill:)
+    @user = user
+    @bill = bill
+    mail to: @user.email, subject: "[BillTracker] Update to #{@bill.name}"
+  end
 end

@@ -48,6 +48,9 @@ gem 'nokogiri', '~> 1.6.6.2'
 # Use will_paginate to paginate
 gem 'will_paginate', '~> 3.0.7'
 
+# User whenever to manage cron jobs
+gem 'whenever', :require => false
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
