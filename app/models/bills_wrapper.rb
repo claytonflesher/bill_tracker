@@ -2,7 +2,7 @@ require "open-uri"
 class BillsWrapper
   def self.call(bill_name:)
     bill = normalize(bill_name)
-    url  = "http://www.oklegislature.gov/BillInfo.aspx?Bill=#{bill}&Session=1500"
+    url  = "http://www.oklegislature.gov/BillInfo.aspx?Bill=#{bill}"
     page = Nokogiri::HTML(open(url))
     arrange(page)
   end
