@@ -10,7 +10,6 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
  *= require_self
  *= require skins/default
  *= require theme-elements
@@ -19,4 +18,5 @@
  *= require theme-shop
  *= require theme-blog
  *= require theme
+ *= require_tree .
  */
