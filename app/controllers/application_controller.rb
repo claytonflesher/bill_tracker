@@ -10,14 +10,14 @@ class ApplicationController < ActionController::Base
   def ensure_signed_in
     unless current_user
       session[:return_to] = request.url
-      redirect_to signin_path
+      redirect_to root_path
     end
   end
 
   def ensure_not_signed_in
     if current_user
       flash[:alert] = "Please sign out."
-      redirect_to root_path
+      redirect_to tracker_path
     end
   end
 

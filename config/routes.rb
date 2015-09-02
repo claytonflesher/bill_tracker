@@ -11,8 +11,9 @@ Rails.application.routes.draw do
   post   "reset_password/:token/edit" => "password_resets#update"
   get    "verify/:user_id"            => "verifications#new",      as: :verify
   get    "verify/confirm/:token"      => "verifications#create",   as: :confirm
-  post   "/"                          => "tracker#create",         as: :subscribe
-  delete "/"                          => "tracker#delete"         
+  get    "tracker"                    => "tracker#index",          as: :tracker
+  post   "tracker"                    => "tracker#create",         as: :subscribe
+  delete "tracker"                    => "tracker#delete"         
 
 
 
@@ -20,7 +21,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'tracker#index'
+  root 'landing_page#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
