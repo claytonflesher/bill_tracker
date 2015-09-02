@@ -12,18 +12,11 @@
  *
  *= require_tree .
  *= require_self
+ *= require skins/default
+ *= require theme-elements
+ *= require custom
+ *= require theme-animate
+ *= require theme-shop
+ *= require theme-blog
+ *= require theme
  */
-
-.flash_alert {
-  color: red;
-}
-
-.flash_notice {
-  color: green;
-}
-
-.field_with_errors {
-  input {
-    border-color: red;
-  }
-}
