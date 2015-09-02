@@ -51,16 +51,6 @@
                 </div>
               </div>
               <div class="header-column header-column-valign-top">
-                <div class="header-search hidden-xs">
-                  <form id="searchForm" action="page-search-results.html" method="get">
-                    <div class="input-group">
-                      <input type="text" class="form-control" name="q" id="q" placeholder="Search..." required>
-                      <span class="input-group-btn">
-                        <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
-                      </span>
-                    </div>
-                  </form>
-                </div>
                 <nav class="header-nav-top">
                   <ul class="nav nav-pills">
                     <li class="hidden-xs">
@@ -445,9 +435,20 @@
           </div>
         </div>
 
-          <!-- Everything in between this and the footer will yield -->
 
-      <footer id="footer">
+
+        <% %i[alert notice].each do |type| %>
+          <% if flash[type] %>
+            <div class="flash_<%= type %>"><%= flash[type] %></div>
+          <% end %>
+        <% end %>
+
+
+        <!-- Everything in between this and the footer will yield -->
+
+        <%= yield %>
+
+        <footer id="footer">
         <div class="container">
           <div class="row">
             <div class="footer-ribbon">

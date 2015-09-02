@@ -17,6 +17,7 @@
 //= require jquery.easing
 //= require jquery-cookie
 //= require jquery.stellar
+//= require jquery.isotope
 //= require jquery.lazyload
 //= require jquery.flipshow
 //= require jquery.validation
@@ -30,12 +31,11 @@
 //= require excanvas
 //= require bootstrap
 //= require common
-//= require isotope
 //= require owl.carousel
 //= require jflickrfeed
 //= require vide
 //= require theme
 //= require view.home
-//= require cusom
+//= require custom
 //= require theme.init
 //= require_tree .
