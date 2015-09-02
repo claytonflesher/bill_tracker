@@ -11,12 +11,6 @@
  * file per style scope.
  *
  *= require_self
- *= require skins/default
- *= require theme-elements
- *= require custom
- *= require theme-animate
- *= require theme-shop
- *= require theme-blog
  *= require theme
  *= require_tree .
  */

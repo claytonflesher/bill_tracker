@@ -22,42 +22,33 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <header id="header" data-plugin-options='{"stickyEnabled": true, "stickyEnableOnBoxed": true, "stickyEnableOnMobile": true, "stickyStartAt": 57, "stickySetTop": "-57px", "stickyChangeLogo": true}'>
-      <div class="header-body">
-        <div class="header-container container">
-          <div class="header-row">
-            <div class="header-column">
+    <div class="body">
+      <% if current_user %>
+        <div class= "user">
+          Signed in as <%= current_user.email %> |
+          <%= link_to "Sign Out", signout_path, method: "DELETE" %>
+        </div>
+      <% end %>
 
+      <% %i[alert notice].each do |type| %>
+        <% if flash[type] %>
+          <div class="flash_<%= type %>"><%= flash[type] %></div>
+        <% end %>
+      <% end %>
+
+      <div role="main" class="main">
+        <%= yield %>
+      </div>
+
+      <footer id="footer">
+        <div class="container">
+          <div class="row">
+            <div class="footer-ribbon">
+              <span>Get in Touch</span>
             </div>
           </div>
         </div>
-      </div>
-    </header>
-    <% if current_user %>
-      <div class= "user">
-        Signed in as <%= current_user.email %> |
-        <%= link_to "Sign Out", signout_path, method: "DELETE" %>
-      </div>
-    <% end %>
-
-    <% %i[alert notice].each do |type| %>
-      <% if flash[type] %>
-        <div class="flash_<%= type %>"><%= flash[type] %></div>
-      <% end %>
-    <% end %>
-    <div role="main" class="main">
-      <%= yield %>
+      </footer>
     </div>
-
-    <footer id="footer">
-      <div class="container">
-        <div class="row">
-          <div class="footer-ribbon">
-            <span>Get in Touch</span>
-          </div>
-        </div>
-      </div>
-    </footer>
-
   </body>
 </html>
