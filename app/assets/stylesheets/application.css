@@ -12,5 +12,16 @@
  *
  *= require_self
  *= require theme
+ *= require theme-elements
+ *= require theme-blog
+ *= require theme-shop
+ *= require theme-animate
+ *= require bootstrap
+ *= require font-awesome
+ *= require simple-line-icons
+ *= require owl.carousel.min
+ *= require owl.theme.default.min
+ *= require skins/default
+ *= require custom
  *= require_tree .
  */
