@@ -22,6 +22,10 @@
     <!-- Web Fonts  -->
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light" rel="stylesheet" type="text/css">
 
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+
     <!--[if IE]>
       <link rel="stylesheet" href="css/ie.css">
       <![endif]-->
