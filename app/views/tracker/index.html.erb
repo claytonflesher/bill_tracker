@@ -49,19 +49,24 @@
 
     <div class="row">
       <div class="col-md-12"> 
-
-        <h4>Your current subscriptions:</h4>
-          <% @bills.each do |bill| %>
-            <section class="call-to-action call-to-action-<%= ["primary", "secondary", "tertiary", "quaternary"].sample%> mb-xl">
+          <h4>Your current subscriptions:</h4>
+        <% @bills.each do |bill| %>
+          <section class="call-to-action call-to-action-<%= [
+            "primary", "secondary", "tertiary", "quaternary"].sample %> mb-xl">
             <div class="call-to-action-content">
-              <h3><%= bill.name %></h3>
-              <p>most recent action:</p>
-              <%= bill.description[-4] %>
-              <%= bill.description[-2] %>
-              <%= button_to "Unsubscribe", { action: "delete", id: bill.id }, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-lg btn-default" %>
+              <h3><strong>Bill Number: <%= bill.name %></strong></h3>
+              <p><strong>Most recent action: <%= bill.description[-4] %></strong></p> 
+              <p><strong>on <%= bill.description[-2] %></strong></p>
             </div>
-            <br>
-        </section>
+            <div class="call-to-action-btn">
+              <%= button_to "Unsubscribe", { 
+                action: "delete", 
+                id: bill.id }, 
+                method: :delete, 
+                data: { confirm: "Are you sure?" },
+                class: "btn btn-default" %>
+          </div>
+          </section>
           <% end %>
         <%= will_paginate @bills %>
       </div>
