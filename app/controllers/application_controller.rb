@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   def ensure_signed_in
     unless current_user
       session[:return_to] = request.url
-      redirect_to root_path
+      redirect_to signin_path
     end
   end
 

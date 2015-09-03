@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class>
   <head>
     <!-- Basic -->
     <meta charset="utf-8">
@@ -98,22 +98,21 @@
 
       <div role="main" class="main" style="border: 1px solid transparent;">
         <div class="render_wrapper" style="margin-top: 125px;">
-
-          <% if current_user %>
-            <div class= "user">
-              Signed in as <%= current_user.email %> |
-              <%= link_to "Sign Out", signout_path, method: "DELETE" %>
-            </div>
-          <% end %>
-
-          <% %i[alert notice].each do |type| %>
-            <% if flash[type] %>
-              <div class="flash_<%= type %>"><%= flash[type] %></div>
+          <div class="container"
+            <% if current_user %>
+              <p>Signed in as <%= current_user.email %> |
+              <%= link_to "Sign Out", signout_path, method: "DELETE" %></p>
             <% end %>
-          <% end %>
 
-          <%= yield %>
-        </div>
+            <% %i[alert notice].each do |type| %>
+              <% if flash[type] %>
+                <div class="alert flash_<%= type %>"><%= flash[type] %></div>
+              <% end %>
+            <% end %>
+
+          </div>
+            <%= yield %>
+          </div>
       </div>
 
       <footer id="footer">

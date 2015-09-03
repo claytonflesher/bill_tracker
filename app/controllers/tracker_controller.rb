@@ -1,4 +1,5 @@
 class TrackerController < ApplicationController
+
   def index
     @user  = User.find(session[:user_id])
     @bill  = Bill.new
@@ -12,17 +13,18 @@ class TrackerController < ApplicationController
     @bill.user_id     = session[:user_id]
     if @bill.save
       flash[:notice] = "Successfully subscribed to #{@bill.name}."
-      redirect_to "/"
+      redirect_to tracker_path
     else
       flash[:alert]  = "Not a valid bill number"
-      redirect_to "/"
+      redirect_to tracker_path
     end
   end
 
   def delete
     @bill = Bill.find(params[:id])
     @bill.destroy
-    redirect_to "/"
+    flash[:notice] = "Unsubcribed from #{@bill.name}"
+    redirect_to tracker_path
   end
 
   private
