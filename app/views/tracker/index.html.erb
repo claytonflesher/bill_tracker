@@ -1,29 +1,55 @@
-<h1>Bill Tracker Dashboard</h1>
-<h2>Welcome.</h2>
+<div class="container">
+<div class="row">
+  <div class="col-md-12">
 
-<%= form_for(@bill, url: subscribe_path) do |f| %>
-  <% unless f.object.errors.empty? %>
-    <h2>Errors</h2>
-    <ul>
-      <% f.object.errors.full_messages.each do |error| %>
-        <li><%= error %></li>
-      <% end %>
-    </ul>
-  <% end %>
+    <div class="featured-boxes">
+      <div class="row">
+        <div class="col-sm-6">
+          <h1>Bill Tracker Dashboard</h1>
+          <div class="featured-box featured-box-primary align-left mt-xlg">
+            <div class="box-content">
+              <h4 class="heading-primary text-uppercase mb-md">Subscribe to a Bill</h4>
+              <%= form_for(@bill, url: subscribe_path, id: "frmSignIn") do |f| %>
+                <% unless f.object.errors.empty? %>
+                  <h2>Errors</h2>
+                  <ul>
+                    <% f.object.errors.full_messages.each do |error| %>
+                      <li><%= error %></li>
+                    <% end %>
+                  </ul>
+                <% end %>
+                <p>To subscribe to a bill, please enter it in the following format:</p>
+                <ul>
+                  <li>HB for House Bill, SB for Senate Bill, HJR for House Joint Resolution, etc.</li>
+                  <li>Followed by the Bill's number.</li>
+                  <li>So, House Bill 1001 would be HB1001</li>
+                </ul>
 
-  <p>To subscribe to a bill, please enter it in the following format:</p>
-  <ul>
-    <li>HB for House Bill, SB for Senate Bill, HJR for House Joint Resolution, etc.</li>
-    <li>Followed by the Bill's number.</li>
-    <li>So, House Bill 1001 would be HB1001</li>
-  </ul>
-  <dl>
-    <dt><%= f.label      :name, "Bill Name" %></dt>
-    <dd><%= f.text_field :name %></dt>
-  </dl>
+                <div class="row">
+                  <div class="form-group">
+                    <div class="col-md-12">
+                      <%= f.label :name, "Bill Name"%>
+                      <%= f.text_field :name, class: "form-control input-lg" %>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                  </div>
+                  <div class="col-md-6">
+                    <%= f.submit "Subscribe", class: "btn btn-primary pull-right mb-xl" %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+        
+        
 
-  <%= f.submit "Subscribe" %>
-<% end %>
+
 <br>
 <p>Your current subscriptions:</p>
 <ul>
