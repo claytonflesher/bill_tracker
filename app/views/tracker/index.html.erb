@@ -21,7 +21,7 @@
                 <p>To subscribe to a bill, please enter it in the following format:</p>
                 <ul>
                   <li>HB for House Bill, SB for Senate Bill, HJR for House Joint Resolution, etc.</li>
-                  <li>Followed by the Bill's number.</li>
+                  <li>Followed by the bill's number.</li>
                   <li>So, House Bill 1001 would be HB1001</li>
                 </ul>
 
@@ -46,24 +46,24 @@
         </div>
       </div>
     </div>
-        
-        
 
+    <div class="row">
+      <div class="col-md-12"> 
 
-<br>
-<p>Your current subscriptions:</p>
-<ul>
-  <% @bills.each do |bill| %>
-    <li><%= bill.name %>
-    <li>most recent action:</li>
-    <ul>
-      <li><%= bill.description[-4] %></li>
-      <li><%= bill.description[-2] %></li>
-    </ul>
-    <%= button_to "Unsubscribe", { action: "delete", id: bill.id },
-                                                       method: :delete, data: { confirm: "Are you sure?" } %></li>
-    <br>
-  <% end %>
-</ul>
-
-<%= will_paginate @bills %>
+        <h4>Your current subscriptions:</h4>
+          <% @bills.each do |bill| %>
+            <section class="call-to-action call-to-action-<%= ["primary", "secondary", "tertiary", "quaternary"].sample%> mb-xl">
+            <div class="call-to-action-content">
+              <h3><%= bill.name %></h3>
+              <p>most recent action:</p>
+              <%= bill.description[-4] %>
+              <%= bill.description[-2] %>
+              <%= button_to "Unsubscribe", { action: "delete", id: bill.id }, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-lg btn-default" %>
+            </div>
+            <br>
+        </section>
+          <% end %>
+        <%= will_paginate @bills %>
+      </div>
+    </div>
+  </div>
