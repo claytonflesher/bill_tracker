@@ -1136,6 +1136,7 @@ window.theme = {};
 }).apply(this, [window.theme, jQuery]);
 
 // Scroll to Top
+$(document).ready(function() {
 (function(theme, $) {
 
 	theme = theme || {};
@@ -1249,6 +1250,7 @@ window.theme = {};
 	});
 
 }).apply(this, [window.theme, jQuery]);
+});
 
 // Sort
 (function(theme, $) {

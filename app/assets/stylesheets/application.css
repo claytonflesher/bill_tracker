@@ -17,11 +17,12 @@
  *= require theme-shop
  *= require theme-animate
  *= require bootstrap
- *= require font-awesome
  *= require simple-line-icons
  *= require owl.carousel.min
  *= require owl.theme.default.min
+ *= require magnific-popup
  *= require skins/default
  *= require custom
+ *= require font-awesome
  *= require_tree .
  */

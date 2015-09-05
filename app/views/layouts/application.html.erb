@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class>
+<html class="dark">
   <head>
     <!-- Basic -->
     <meta charset="utf-8">
@@ -45,15 +45,12 @@
                     <li class="hidden-xs">
                       <a href="contact-us.html"><i class="fa fa-angle-right"></i> Contact Us</a>
                     </li>
-                    <li>
-                      <span class="ws-nowrap"><i class="fa fa-phone"></i> (123) 456-7890</span>
-                    </li>
                   </ul>
                 </nav>
               </div>
             </div>
           </div>
-          <div class="header-container header-nav header-nav-push-top">
+          <div class="header-container container header-nav header-nav-push-top">
             <button class="btn header-btn-collapse-nav" data-toggle="collapse" data-target=".header-nav-main">
               <i class="fa fa-bars"></i>
             </button>
@@ -98,7 +95,7 @@
 
       <div role="main" class="main" style="border: 1px solid transparent;">
         <div class="render_wrapper" style="margin-top: 125px;">
-          <div class="container"
+          <div class="container">
             <% if current_user %>
               <p>Signed in as <%= current_user.email %> |
               <%= link_to "Sign Out", signout_path, method: "DELETE" %></p>
@@ -106,7 +103,7 @@
 
             <% %i[alert notice].each do |type| %>
               <% if flash[type] %>
-                <div class="alert flash_<%= type %>"><%= flash[type] %></div>
+                <div class="alert-default flash_<%= type %>"><%= flash[type] %></div>
               <% end %>
             <% end %>
 

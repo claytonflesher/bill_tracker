@@ -18,11 +18,11 @@
                     <% end %>
                   </ul>
                 <% end %>
-                <p>To subscribe to a bill, please enter it in the following format:</p>
                 <ul>
-                  <li>HB for House Bill, SB for Senate Bill, HJR for House Joint Resolution, etc.</li>
-                  <li>Followed by the bill's number.</li>
-                  <li>So, House Bill 1001 would be HB1001</li>
+                <li>To subscribe to a bill, please enter it in the following format:</li>
+                <li>HB for House Bill, SB for Senate Bill, HJR for House Joint Resolution, etc.</li>
+                <li>Followed by the bill's number.</li>
+                <li>So, House Bill 1001 would be HB1001</li>
                 </ul>
 
                 <div class="row">
@@ -51,8 +51,8 @@
       <div class="col-md-12"> 
         <h4>Your current subscriptions:</h4>
         <% @bills.each do |bill| %>
-          <section class="call-to-action call-to-action-<%= [
-            "primary", "secondary", "tertiary", "quaternary"].sample %> mb-xl">
+          <section class="call-to-action call-to-action-<%= cycle(
+            "primary", "secondary", "tertiary", "quaternary") %> mb-xl">
             <div class="call-to-action-content">
               <h3><strong>Bill Number: <%= bill.name %></strong></h3>
               <p><strong>Most recent action: <%= bill.description[-4] %></strong></p> 

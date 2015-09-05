@@ -26,6 +26,6 @@ RSpec.describe "PasswordResets", type: :request do
 
     post_via_redirect("/signin", email: user.email, password: "newpassword")
     assert_response(:success)
-    expect(path).to eq(root_path)
+    expect(path).to eq(tracker_path)
   end
 end
