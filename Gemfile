@@ -50,6 +50,8 @@ gem 'will_paginate', '~> 3.0.7'
 
 # User whenever to manage cron jobs
 gem 'whenever', :require => false
+# Use font-awesome for icons
+gem 'font-awesome-rails', '~> 4.4.0.0'
 
 
 group :development, :test do

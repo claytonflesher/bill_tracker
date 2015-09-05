@@ -1,26 +1,126 @@
 <!DOCTYPE html>
-<html>
+<html class="dark">
   <head>
+    <!-- Basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+
     <title>BillTracker</title>
+
+    <meta name="keywords" content="Bill Tracker">
+    <meta name="description" content="Bill Tracker">
+    <meta name="author" content="Clayton Flesher">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Web Fonts -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light" rel="stylesheet" type="text/css">
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
+
   </head>
-  <body>
-    <% if current_user %>
-      <div class= "user">
-        Signed in as <%= current_user.email %> |
-        <%= link_to "Sign Out", signout_path, method: "DELETE" %>
+
+  <body data-spy="scroll" data-targets="#sidebar" data-offesets="120">
+    <div class="body">
+      <header id="header" data-plugin-options='{"stickyEnabled": true, "stickyEnableOnBoxed": true, "stickyEnableOnMobile": true, "stickyStartAt": 57, "stickySetTop": "-57px", "stickyChangeLogo": true}'>
+        <div class="header-body">
+          <div class="header-container container">
+            <div class="header-row">
+              <div class="header-column">
+                <div class="header-logo">
+                  <a href="index.html">
+                    <%= image_tag("Flag_of_Oklahoma.svg", alt: "Logo", width: "111", height: "54", data_sticky_width: "82", data_sticky_height: "40", data_sticky_top: "33") %>
+                  </a1>
+                </div>
+              </div>
+              <div class="header-column header-column-valign-top">
+                <nav class="header-nav-top">
+                  <ul class="nav nav-pills">
+                    <li class="hidden-xs">
+                      <a href="about-us.html"><i class="fa fa-angle-right"></i> About Us</a>
+                    </li>
+                    <li class="hidden-xs">
+                      <a href="contact-us.html"><i class="fa fa-angle-right"></i> Contact Us</a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+          <div class="header-container container header-nav header-nav-push-top">
+            <button class="btn header-btn-collapse-nav" data-toggle="collapse" data-target=".header-nav-main">
+              <i class="fa fa-bars"></i>
+            </button>
+            <ul class="header-social-icons social-icons hidden-xs">
+              <li class="social-icons-facebook"><a href="http://www.facebook.com/" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+              <li class="social-icons-twitter"><a href="http://www.twitter.com/" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+            </ul>
+            <div class="header-nav-main header-nav-main-effect-1 header-nav-main-sub-effect-1 collapse">
+              <nav>
+                <ul class="nav nav-pills" id="mainNav">
+                  <li class="btn active">
+                    <a class="btn-icon" href="index.html">
+                      Home
+                    </a>
+                  </li>
+                  <li class="btn active">
+                    <a class="btn-icon" href="#">
+                      Sign In
+                    </a>
+                  </li>
+                  <li class="btn active">
+                    <a class="btn-icon" href="#">
+                      Sign Up
+                    </a>
+                  </li>
+                  <li class="btn active">
+                    <a class="btn-icon" href="#">
+                      About
+                    </a>
+                  </li>
+                  <li class="btn active">
+                    <a class="btn-icon" href="#">
+                      Contact Us
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div role="main" class="main" style="border: 1px solid transparent;">
+        <div class="render_wrapper" style="margin-top: 125px;">
+          <div class="container">
+            <% if current_user %>
+              <p>Signed in as <%= current_user.email %> |
+              <%= link_to "Sign Out", signout_path, method: "DELETE" %></p>
+            <% end %>
+
+            <% %i[alert notice].each do |type| %>
+              <% if flash[type] %>
+                <div class="alert-default flash_<%= type %>"><%= flash[type] %></div>
+              <% end %>
+            <% end %>
+
+          </div>
+            <%= yield %>
+          </div>
       </div>
-    <% end %>
 
-    <% %i[alert notice].each do |type| %>
-      <% if flash[type] %>
-        <div class="flash_<%= type %>"><%= flash[type] %></div>
-      <% end %>
-    <% end %>
-
-    <%= yield %>
-
+      <footer id="footer">
+        <div class="container">
+          <div class="row">
+            <div class="footer-ribbon">
+              <span>Get in Touch</span>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
   </body>
 </html>

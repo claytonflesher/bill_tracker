@@ -10,20 +10,19 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
  *= require_self
+ *= require theme
+ *= require theme-elements
+ *= require theme-blog
+ *= require theme-shop
+ *= require theme-animate
+ *= require bootstrap
+ *= require simple-line-icons
+ *= require owl.carousel.min
+ *= require owl.theme.default.min
+ *= require magnific-popup
+ *= require skins/default
+ *= require custom
+ *= require font-awesome
+ *= require_tree .
  */
-
-.flash_alert {
-  color: red;
-}
-
-.flash_notice {
-  color: green;
-}
-
-.field_with_errors {
-  input {
-    border-color: red;
-  }
-}

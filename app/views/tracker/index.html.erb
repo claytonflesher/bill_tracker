@@ -1,43 +1,76 @@
-<h1>Bill Tracker Dashboard</h1>
-<h2>Welcome.</h2>
+<div class="container">
+<div class="row">
+  <div class="col-md-12">
 
-<%= form_for(@bill, url: subscribe_path) do |f| %>
-  <% unless f.object.errors.empty? %>
-    <h2>Errors</h2>
-    <ul>
-      <% f.object.errors.full_messages.each do |error| %>
-        <li><%= error %></li>
-      <% end %>
-    </ul>
-  <% end %>
+    <div class="featured-boxes">
+      <div class="row">
+        <div class="col-sm-6">
+          <h1>Bill Tracker Dashboard</h1>
+          <div class="featured-box featured-box-primary align-left mt-xlg">
+            <div class="box-content">
+              <h4 class="heading-primary text-uppercase mb-md">Subscribe to a Bill</h4>
+              <%= form_for(@bill, url: subscribe_path, id: "frmSignIn") do |f| %>
+                <% unless f.object.errors.empty? %>
+                  <h2>Errors</h2>
+                  <ul>
+                    <% f.object.errors.full_messages.each do |error| %>
+                      <li><%= error %></li>
+                    <% end %>
+                  </ul>
+                <% end %>
+                <ul>
+                <li>To subscribe to a bill, please enter it in the following format:</li>
+                <li>HB for House Bill, SB for Senate Bill, HJR for House Joint Resolution, etc.</li>
+                <li>Followed by the bill's number.</li>
+                <li>So, House Bill 1001 would be HB1001</li>
+                </ul>
 
-  <p>To subscribe to a bill, please enter it in the following format:</p>
-  <ul>
-    <li>HB for House Bill, SB for Senate Bill, HJR for House Joint Resolution, etc.</li>
-    <li>Followed by the Bill's number.</li>
-    <li>So, House Bill 1001 would be HB1001</li>
-  </ul>
-  <dl>
-    <dt><%= f.label      :name, "Bill Name" %></dt>
-    <dd><%= f.text_field :name %></dt>
-  </dl>
+                <div class="row">
+                  <div class="form-group">
+                    <div class="col-md-12">
+                      <h4><%= f.label :name, "Bill Name" %></h4>
+                      <%= f.text_field :name, class: "form-control input-lg" %>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                  </div>
+                  <div class="col-md-6">
+                    <%= f.submit "Subscribe", class: "btn btn-primary pull-right mb-xl" %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <%= f.submit "Subscribe" %>
-<% end %>
-<br>
-<p>Your current subscriptions:</p>
-<ul>
-  <% @bills.each do |bill| %>
-    <li><%= bill.name %>
-    <li>most recent action:</li>
-    <ul>
-      <li><%= bill.description[-4] %></li>
-      <li><%= bill.description[-2] %></li>
-    </ul>
-    <%= button_to "Unsubscribe", { action: "delete", id: bill.id },
-                                                       method: :delete, data: { confirm: "Are you sure?" } %></li>
-    <br>
-  <% end %>
-</ul>
-
-<%= will_paginate @bills %>
+    <div class="row">
+      <div class="col-md-12"> 
+        <h4>Your current subscriptions:</h4>
+        <% @bills.each do |bill| %>
+          <section class="call-to-action call-to-action-<%= cycle(
+            "primary", "secondary", "tertiary", "quaternary") %> mb-xl">
+            <div class="call-to-action-content">
+              <h3><strong>Bill Number: <%= bill.name %></strong></h3>
+              <p><strong>Most recent action: <%= bill.description[-4] %></strong></p> 
+              <p><strong>on <%= bill.description[-2] %></strong></p>
+            </div>
+            <div class="call-to-action-btn">
+              <%= button_to "Unsubscribe", { 
+                action: "delete", 
+                id: bill.id }, 
+                method: :delete, 
+                data: { confirm: "Are you sure?" },
+                class: "btn btn-default" %>
+          </div>
+          </section>
+        <% end %>
+        <%= will_paginate @bills %>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
