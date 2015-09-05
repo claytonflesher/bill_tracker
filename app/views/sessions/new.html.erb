@@ -1,15 +1,60 @@
-<h1>Sign In</h1>
-
-<%= form_tag do %>
-  <dl>
-    <dt><%= label_tag      :email %></dt>
-    <dd><%= text_field_tag :email %></dd>
-
-
-    <dt><%= label_tag          :password %></dt>
-    <dd><%= password_field_tag :password %></dd>
-    <%= link_to "Forgot Password", reset_password_path %>
-  </dl>
-
-  <%= submit_tag "Sign In" %> or <%= link_to "Sign Up", signup_path %>
-<% end %>
+<section class="page-header">
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <ul class="breadcrumb">
+        <li><a href="<%= root_path %>">Home</a></li>
+        <li class="active">Sign In</li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Sign In</h1>
+    </div>
+  </div>
+</div>
+</section>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="featured-boxes">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="featured-box featured-box-primary align-left mt-xlg">
+              <div class="box-content">
+                <h4 class="heading-primary text-uppercase mb-md">Sign In</h4>
+                <%= form_tag id: "frmSignIn" do %>
+                  <div class="row">
+                    <div class="form-group">
+                      <div class="col-md-12">
+                        <h4><%= label_tag :email, "Email Address" %></h4>
+                        <%= text_field_tag :email, nil, class: "form-control input-lg" %>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="form-group">
+                      <div class="col-md-12">
+                        <%= link_to "Forgot Password", reset_password_path, class: "pull-right" %>
+                        <h4><%= label_tag :password, "Password" %></h4>
+                        <%= password_field_tag :password, nil, class: "form-control input-lg" %>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                    </div>
+                    <div class="col-md-6">
+                      <%= submit_tag "Sign In", class: "btn btn-primary pull-right mn-xl" %>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

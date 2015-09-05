@@ -37,7 +37,7 @@
                   <div class="row">
                     <div class="form-group">
                       <div class="col-md-12">
-                        <%= f.label :email, "Email Address" %>
+                        <h4><%= f.label :email, "Email Address" %></h4>
                         <%= f.text_field :email, class: "form-control input-lg" %>
                       </div>
                     </div>
@@ -45,15 +45,26 @@
                   <div class="row">
                     <div class="form-group">
                       <div class="col-md-12">
-                        <%= f.label :password, "Password" %>
-                        <%= f.text_field :password, class: "form-control input-lg" %>
-                      </div>
-                      <div class="col-md-12">
-                        <%= f.label :password_confirmation, "Re-enter Password" %>
-                        <%= f.text_field :password_confirmation, class: "form-control input-lg" %>
+                        <h4><%= f.label :password, "Password" %></h4>
+                        <%= f.password_field :password, class: "form-control input-lg" %>
                       </div>
                     </div>
                   </div>
+                  <div class="row">
+                    <div class="form-group">
+                      <div class="col-md-12">
+                        <h4><%= f.label :password_confirmation, "Confirm Password" %></h4>
+                        <%= f.password_field :password_confirmation, class: "form-control input-lg" %>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="form-group">
+                      <div class="col-md-12">
+                        <h4><%= f.label :address, "Home Address" %></h4>
+                        <%= f.text_field :address, class: "form-control input-lg" %>
+                      </div>
+                    </div>
                   <div class="row">
                     <div class="col-md-6">
                     </div>

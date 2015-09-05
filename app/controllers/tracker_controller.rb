@@ -15,7 +15,7 @@ class TrackerController < ApplicationController
       flash[:notice] = "Successfully subscribed to #{@bill.name}."
       redirect_to tracker_path
     else
-      flash[:alert]  = "Not a valid bill number"
+      flash[:alert]  = "Not a valid bill number or already subscribed."
       redirect_to tracker_path
     end
   end
