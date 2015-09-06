@@ -27,8 +27,12 @@ class TrackerController < ApplicationController
   end
 
   def delete
+    @bill_subscription = BillSubscription.find_by(user_id: session[:user_id], bill_id: params[:id])
+    @bill_subscription.destroy
     @bill = Bill.find(params[:id])
-    @bill.destroy
+    if @bill.users == []
+      @bill.destroy
+    end
     flash[:notice] = "Unsubcribed from #{@bill.name}"
     redirect_to tracker_path
   end
