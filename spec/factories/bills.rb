@@ -10,7 +10,5 @@ FactoryGirl.define do
                  "47",
                  "02/02/2015",
                  "H"]
-    sequence(:user_id) { |n| "#{n}" }
-
   end
 end

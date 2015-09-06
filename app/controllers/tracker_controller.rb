@@ -7,16 +7,24 @@ class TrackerController < ApplicationController
   end
 
   def create
-    @bill             = Bill.new(bill_params)
+    @bill                       = Bill.new(bill_params)
     normalize_input
-    @bill.description = BillsWrapper.call(bill_name: @bill.name)
-    @bill.user_id     = session[:user_id]
-    if @bill.save
-      flash[:notice] = "Successfully subscribed to #{@bill.name}."
+    existing_bill               = Bill.find_by(name: @bill.name)
+    if existing_bill
+      save_subscription(existing_bill)
+      flash[:notice]          = "Successfully subscribed to #{@bill.name}."
       redirect_to tracker_path
     else
-      flash[:alert]  = "Not a valid bill number or already subscribed."
-      redirect_to tracker_path
+      @bill.description         = BillsWrapper.call(bill_name: @bill.name)
+      if @bill.save!      
+        existing_bill           = Bill.find_by(name: @bill.name)
+        save_subscription(existing_bill)
+        flash[:notice]          = "Successfully subscribed to #{@bill.name}."
+        redirect_to tracker_path
+      else
+        flash[:alert]           = "Not a valid bill number or already subscribed."
+        redirect_to tracker_path
+      end
     end
   end
 
@@ -35,5 +43,15 @@ class TrackerController < ApplicationController
 
   def normalize_input
     @bill.name = bill_params[:name].gsub(/[\s]/, "").upcase
+  end
+
+  def save_subscription(existing_bill)
+      @bill_subscription        = BillSubscription.new(
+                                    bill_id: existing_bill.id, 
+                                    user_id: session[:user_id]
+                                  )
+      @bill_subscription.save!
+      existing_bill.description = BillsWrapper.call(bill_name: existing_bill.name)
+      existing_bill.save!
   end
 end
