@@ -12,17 +12,15 @@ class TrackerController < ApplicationController
     existing_bill               = Bill.find_by(name: @bill.name)
     if existing_bill
       save_subscription(existing_bill)
-      flash[:notice]          = "Successfully subscribed to #{@bill.name}."
       redirect_to tracker_path
     else
       @bill.description         = BillsWrapper.call(bill_name: @bill.name)
-      if @bill.save!      
+      if @bill.save 
         existing_bill           = Bill.find_by(name: @bill.name)
         save_subscription(existing_bill)
-        flash[:notice]          = "Successfully subscribed to #{@bill.name}."
         redirect_to tracker_path
       else
-        flash[:alert]           = "Not a valid bill number or already subscribed."
+        flash[:alert]           = "Not a valid bill number."
         redirect_to tracker_path
       end
     end
@@ -46,12 +44,16 @@ class TrackerController < ApplicationController
   end
 
   def save_subscription(existing_bill)
-      @bill_subscription        = BillSubscription.new(
-                                    bill_id: existing_bill.id, 
-                                    user_id: session[:user_id]
-                                  )
-      @bill_subscription.save!
+    @bill_subscription          = BillSubscription.new(
+      bill_id: existing_bill.id, 
+      user_id: session[:user_id]
+    )
+    if @bill_subscription.save
       existing_bill.description = BillsWrapper.call(bill_name: existing_bill.name)
       existing_bill.save!
+      flash[:notice]            = "Successfully subscribed to #{@bill.name}."
+    else
+      flash[:alert]             = "Already subscribed to this bill."             
+    end
   end
 end
