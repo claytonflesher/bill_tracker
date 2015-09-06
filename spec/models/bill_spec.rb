@@ -13,18 +13,6 @@ RSpec.describe Bill, type: :model do
     expect(bill.errors[:name]).not_to be_empty
   end
 
-  it "ensure the bill is unique to that user" do
-    # Write a test that checks for uniquess of name
-    # scoped to user_id 
-    skip "Test still needs to be written"
-  end
-
-  it "ensures the user_id is present" do
-    bill = Bill.new(user_id: nil)
-    expect(bill).not_to                  be_valid
-    expect(bill.errors[:user_id]).not_to be_empty
-  end
-
   it "ensures the description is present" do
     bill = Bill.new(description: nil)
     expect(bill).not_to                      be_valid

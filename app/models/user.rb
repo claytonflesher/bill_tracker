@@ -17,5 +17,6 @@ class User < ActiveRecord::Base
   validates :senate_district,
             presence: true
 
-  has_many :bills
+  has_many :bills, through: :bill_subscriptions
+  has_many :bill_subscriptions
 end
