@@ -33,17 +33,17 @@
                 <div class="header-logo">
                   <a href="index.html">
                     <%= image_tag("Flag_of_Oklahoma.svg", alt: "Logo", width: "111", height: "54", data_sticky_width: "82", data_sticky_height: "40", data_sticky_top: "33") %>
-                  </a1>
+                  </a>
                 </div>
               </div>
               <div class="header-column header-column-valign-top">
                 <nav class="header-nav-top">
                   <ul class="nav nav-pills">
                     <li class="hidden-xs">
-                      <a href="about-us.html"><i class="fa fa-angle-right"></i> About Us</a>
+                      <i><%= link_to(" About Us", root_path, class: "fa fa-angle-right") %></i>
                     </li>
                     <li class="hidden-xs">
-                      <a href="contact-us.html"><i class="fa fa-angle-right"></i> Contact Us</a>
+                      <i><%= link_to(" Contact Us", root_path, class: "fa fa-angle-right") %></i>
                     </li>
                   </ul>
                 </nav>
@@ -62,29 +62,19 @@
               <nav>
                 <ul class="nav nav-pills" id="mainNav">
                   <li class="btn active">
-                    <a class="btn-icon" href="index.html">
-                      Home
-                    </a>
+                    <%= link_to "Home", root_path, class: "btn-icon" %>
                   </li>
                   <li class="btn active">
-                    <a class="btn-icon" href="#">
-                      Sign In
-                    </a>
+                    <%= link_to "Sign In", signin_path, class: "btn-icon" %>
                   </li>
                   <li class="btn active">
-                    <a class="btn-icon" href="#">
-                      Sign Up
-                    </a>
+                    <%= link_to "Sign Up", signup_path, class: "btn-icon" %>
                   </li>
                   <li class="btn active">
-                    <a class="btn-icon" href="#">
-                      About
-                    </a>
+                    <%= link_to "About Us", root_path, class: "btn-icon" %>
                   </li>
                   <li class="btn active">
-                    <a class="btn-icon" href="#">
-                      Contact Us
-                    </a>
+                    <%= link_to "Contact Us", root_path, class: "btn-icon" %>
                   </li>
                 </ul>
               </nav>
