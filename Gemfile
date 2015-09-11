@@ -46,9 +46,9 @@ group :development do
   gem 'bullet', '~> 4.14.7'
 
   gem "capistrano-rails"
-  gem "capistrano-chruby"
-  gem "capistrano3-unicorn"
-  gem "capistrano-cookbook"
+  gem "capistrano-chruby",   require: false
+  gem "capistrano3-unicorn", require: false
+  gem "capistrano-cookbook", require: false
 end
 
 group :development, :test do
