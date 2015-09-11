@@ -81,5 +81,3 @@ test:
 production:
   <<: *default
   database: bill_tracker_production
-  username: bill_tracker
-  password: <%= ENV['BILL_TRACKER_DATABASE_PASSWORD'] %>
