@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Store constants
-gem 'dotenv-rails', :groups => [:development, :test]
+gem 'dotenv-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
 # Use postgresql as the database for Active Record
@@ -13,7 +13,7 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -30,15 +30,6 @@ gem 'geocoder', '~> 1.2.9'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
-# Use Unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
-# Use bullet to spot N+1 errors
-gem 'bullet', '~> 4.14.7', group: :development
-
 # Use Nokogiri to parse HTML
 gem 'nokogiri', '~> 1.6.6.2'
 
@@ -50,6 +41,15 @@ gem 'whenever', :require => false
 # Use font-awesome for icons
 gem 'font-awesome-rails', '~> 4.4.0.0'
 
+group :development do
+  # Use bullet to spot N+1 errors
+  gem 'bullet', '~> 4.14.7'
+
+  gem "capistrano-rails"
+  gem "capistrano-chruby"
+  gem "capistrano3-unicorn"
+  gem "capistrano-cookbook"
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -67,8 +67,6 @@ group :development, :test do
 
   # Use pry in console
   gem 'pry-rails'
-
-
 end
 
 group :production do
