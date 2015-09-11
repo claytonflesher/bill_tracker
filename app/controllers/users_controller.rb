@@ -35,7 +35,6 @@ class UsersController < ApplicationController
           "long" => @user.longitude 
         }
       )
-      puts legislators
 
       representative        = Legislator.new(json: legislators, chamber: :lower)
       senator               = Legislator.new(json: legislators, chamber: :upper)
