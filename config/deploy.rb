@@ -57,3 +57,4 @@ set :linked_dirs, fetch(:linked_dirs, []).push(
 # end
 
 set :chruby_ruby, "ruby-2.2.3"
+
