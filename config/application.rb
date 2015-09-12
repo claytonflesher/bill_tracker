@@ -27,6 +27,6 @@ module BillTracker
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
 
-    config.action_mailer.default_url_options = {host: "billtracker.com"}
+    config.action_mailer.default_url_options = {host: "billscribe.com"}
   end
 end
