@@ -41,9 +41,6 @@ GEM
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     builder (3.2.2)
-    bullet (4.14.7)
-      activesupport (>= 3.0.0)
-      uniform_notifier (~> 1.9.0)
     byebug (6.0.2)
     capistrano (3.4.0)
       i18n
@@ -209,7 +206,6 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
-    uniform_notifier (1.9.0)
     web-console (2.2.1)
       activemodel (>= 4.0)
       binding_of_caller (>= 0.7.2)
@@ -224,7 +220,6 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt (~> 3.1.7)
-  bullet (~> 4.14.7)
   byebug
   capistrano-chruby
   capistrano-cookbook

@@ -41,9 +41,10 @@ gem 'whenever', :require => false
 # Use font-awesome for icons
 gem 'font-awesome-rails', '~> 4.4.0.0'
 
+# Use pry in console
+gem 'pry-rails'
+
 group :development do
-  # Use bullet to spot N+1 errors
-  gem 'bullet', '~> 4.14.7'
 
   gem "capistrano-rails"
   gem "capistrano-chruby",   require: false
@@ -65,8 +66,6 @@ group :development, :test do
   gem "rspec-rails", "~> 3.3.3"
   gem "factory_girl_rails", "~>4.5.0"
 
-  # Use pry in console
-  gem 'pry-rails'
 end
 
 group :production do
