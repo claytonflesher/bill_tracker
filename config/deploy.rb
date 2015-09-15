@@ -58,3 +58,5 @@ set :linked_dirs, fetch(:linked_dirs, []).push(
 
 set :chruby_ruby, "ruby-2.2.3"
 
+set :whenever_command, "bundle exec whenever"
+require "whenever/capistrano"
