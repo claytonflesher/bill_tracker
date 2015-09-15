@@ -7,5 +7,6 @@ FactoryGirl.define do
     address "111 E Bay St., OKC, OK 73120"
     house_district "5"
     senate_district "10"
+    state "OK"
   end
 end
