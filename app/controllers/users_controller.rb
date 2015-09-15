@@ -40,6 +40,7 @@ class UsersController < ApplicationController
       senator               = Legislator.new(json: legislators, chamber: :upper)
       @user.house_district  = representative.district
       @user.senate_district = senator.district
+      @user.state           = representative.state
     end
   end
 end
