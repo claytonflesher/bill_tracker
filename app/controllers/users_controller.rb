@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to verify_path(user_id: @user.id)
     else
-      redirect_to signup_path
+      render :new
     end
   end
 
