@@ -14,7 +14,7 @@ RSpec.describe UsersController, type: :controller do
     attributes[:password_confirmation] = ""
     expect(User.find_by(email: attributes[:email])).to be_nil
     post :create, user: attributes
-    assert_response(:success)
+    assert_response(:redirect)
     user = assigns[:user]
     expect(user.email).to eq(attributes[:email])
     expect(User.find_by(email: attributes[:email])).to be_nil
