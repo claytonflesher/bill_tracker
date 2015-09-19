@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  skip_before_filter :ensure_signed_in
-  before_filter      :ensure_not_signed_in
+  skip_before_filter :ensure_signed_in, except: [:show, :update]
+  before_filter      :ensure_not_signed_in, except: [:show, :update]
 
   def new
     @user = User.new
@@ -16,10 +16,23 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+    @user = User.find(session[:user_id])
+  end
+
+  def update
+    @user = User.find(session[:user_id])
+    @user.update(address: update_params[:address])
+  end
+
   private
 
   def user_params
     params.require(:user).permit(:email, :password, :password_confirmation, :address)
+  end
+
+  def update_params
+    params.require(:user).permit(:address)
   end
 
   def set_legislative_info
@@ -41,6 +54,8 @@ class UsersController < ApplicationController
       @user.house_district  = representative.district
       @user.senate_district = senator.district
       @user.state           = representative.state
+      @user.representative  = representative.full_name
+      @user.senator         = senator.full_name
     end
   end
 end
