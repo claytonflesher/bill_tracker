@@ -41,6 +41,22 @@
             <li><i class="fa fa-check"></i> Senator: <%= @user.senator %></li>
           </ul>
         </div>
+        <div class="col-md-6">
+          <%= form_tag id: "frmProfile" do %>
+            <div class="row">
+              <div class="col-md-12">
+                <h4><%= label_tag :address, "Update Address" %></h4>
+                <%= text_field_tag :address, nil, class: "form-control input-lg" %>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-md-12">
+                <%= submit_tag "Update", class: "btn btn-primary pull-right mn-xl" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
