@@ -20,6 +20,12 @@ class User < ActiveRecord::Base
   validates :state,
             presence: true
 
+  validates :representative,
+            presence: true
+
+  validates :senator,
+            presence: true
+
   has_many :bills, through: :bill_subscriptions
   has_many :bill_subscriptions
 end

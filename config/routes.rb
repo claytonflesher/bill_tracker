@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   get    "signup"                     => "users#new",              as: :signup
   post   "signup"                     => "users#create"
+  get    "profile"                    => "users#show",             as: :profile
+  post   "profile"                    => "users#update"
   get    "signin"                     => "sessions#new",           as: :signin
   post   "signin"                     => "sessions#create"
   delete "signout"                    => "sessions#destroy"

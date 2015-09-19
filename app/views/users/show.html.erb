@@ -1,0 +1,48 @@
+<section class="page-header">
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <ul class="breadcrumb">
+        <li><a href="<%= tracker_path %>">Dashboard</a></li>
+        <li class="active">Profile</li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Profile</h1>
+    </div>
+  </div>
+</div>
+</section>
+<div class="container">
+  <div class="row">
+    <div class="col-md-9">
+      <div class="row">
+        <div class="col-md-12">
+          <h2 class="mb-none">Profile for <%= @user.email %></h2>
+          <hr class="tall">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <h4>User Data</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <ul class="list list-icons">
+            <li><i class="fa fa-check"></i> Email: <%= @user.email %></li>
+            <li><i class="fa fa-check"></i> Address: <%= @user.address %></li>
+            <li><i class="fa fa-check"></i> State: <%= @user.state %></li>
+            <li><i class="fa fa-check"></i> House District: <%= @user.house_district %></li>
+            <li><i class="fa fa-check"></i> Representative: <%= @user.representative %></li>
+            <li><i class="fa fa-check"></i> Senate District: <%= @user.senate_district %></li>
+            <li><i class="fa fa-check"></i> Senator: <%= @user.senator %></li>
+            <li><i class="fa fa-check"></i> Email: <%= @user.email %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
