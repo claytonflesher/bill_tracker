@@ -47,7 +47,37 @@ RSpec.describe User, type: :model do
 
   it "makes sure the street address is present" do
     user = User.new(address: nil)
-    expect(user).not_to                             be_valid
+    expect(user).not_to                  be_valid
     expect(user.errors[:address]).not_to be_empty
+  end
+
+  it "has a senator" do
+    user = User.new(senator: nil)
+    expect(user).not_to be_valid
+    expect(user.errors[:senator]).not_to be_empty
+  end
+
+  it "has a representative" do
+    user = User.new(representative: nil)
+    expect(user).not_to                         be_valid
+    expect(user.errors[:representative]).not_to be_empty
+  end
+
+  it "has a senate district" do
+    user = User.new(senate_district: nil)
+    expect(user).not_to                          be_valid
+    expect(user.errors[:senate_district]).not_to be_empty
+  end
+
+  it "has a house district" do
+    user = User.new(house_district: nil)
+    expect(user).not_to                         be_valid
+    expect(user.errors[:house_district]).not_to be_empty
+  end
+
+  it "has a state" do
+    user = User.new(state: nil)
+    expect(user).not_to                be_valid
+    expect(user.errors[:state]).not_to be_empty
   end
 end

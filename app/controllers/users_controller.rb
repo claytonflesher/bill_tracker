@@ -22,17 +22,16 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(session[:user_id])
-    @user.update(address: update_params[:address])
+    @user.address = params[:address]
+    set_legislative_info
+    @user.save!
+    redirect_to profile_path
   end
 
   private
 
   def user_params
     params.require(:user).permit(:email, :password, :password_confirmation, :address)
-  end
-
-  def update_params
-    params.require(:user).permit(:address)
   end
 
   def set_legislative_info
