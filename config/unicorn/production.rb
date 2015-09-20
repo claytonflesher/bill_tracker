@@ -55,6 +55,10 @@ preload_app true
 # fast LAN.
 check_client_connection false
 
+before_exec do |server|
+  ENV['BUNDLE_GEMFILE'] = "#{dir}/Gemfile"
+end
+
 before_fork do |server, worker|
   # the following is highly recomended for Rails + "preload_app true"
   # as there's no need for the master process to hold a connection
