@@ -1,7 +1,7 @@
 namespace :update_users do
   desc "Update user profile data"
   task profiles: :environment do
-    User.all.each do |user|
+    User.find_each do |user|
       legislators = OpenStatesWrapper.call(
         call_type: :geo_lookup,
         url_parameters: {
