@@ -21,4 +21,21 @@ namespace :update_users do
       user.save!
     end
   end
+
+  desc "Migrate user date to user_profile"
+  task migrate: :environment do
+    User.find_each do |user|
+      profile = UserProfile.new
+      profile.user_id         = user.id
+      profile.address         = user.address
+      profile.latitude        = user.latitude
+      profile.longitude       = user.longitude
+      profile.state           = user.state
+      profile.house_district  = user.house_district
+      profile.senate_district = user.senate_district
+      profile.representative  = user.representative
+      profile.senator         = user.senator
+      profile.save!
+    end
+  end
 end
