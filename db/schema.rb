@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150919203915) do
+ActiveRecord::Schema.define(version: 20150926175125) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,22 +33,30 @@ ActiveRecord::Schema.define(version: 20150919203915) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "user_profiles", force: :cascade do |t|
+    t.string   "address",         null: false
+    t.float    "longitude",       null: false
+    t.float    "latitude",        null: false
+    t.integer  "house_district",  null: false
+    t.integer  "senate_district", null: false
+    t.string   "state",           null: false
+    t.string   "representative",  null: false
+    t.string   "senator",         null: false
+    t.integer  "user_id",         null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "user_profiles", ["user_id"], name: "index_user_profiles_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                null: false
     t.string   "password_digest",      null: false
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
-    t.float    "latitude"
-    t.float    "longitude"
-    t.string   "address"
     t.string   "verification_token"
     t.datetime "verified_at"
     t.string   "password_reset_token"
-    t.integer  "house_district"
-    t.integer  "senate_district"
-    t.string   "state"
-    t.string   "representative"
-    t.string   "senator"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", using: :btree
