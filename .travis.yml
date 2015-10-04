@@ -1,4 +1,10 @@
 language: ruby
+before_script:
+    - psql -c 'create database travis_ci_test;' -U postgres
+test:
+    adapter: postgresql
+    database: travis_ci_test
+    username: postgres
 rvm:
   - "2.0"
   - "2.1"
