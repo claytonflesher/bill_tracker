@@ -43,6 +43,8 @@ gem 'font-awesome-rails', '~> 4.4.0.0'
 
 # Use pry in console
 gem 'pry-rails'
+# Use awesome-print to make output look nice
+gem 'awesome_print'
 
 group :development do
 
