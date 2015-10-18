@@ -8,6 +8,7 @@ class OpenStatesWrapper
     url        = call_types(parameters: parameters)[call_type]
     query      = uri + url
     JSON.parse(open(query).read)
+  rescue OpenURI::HTTPError
   end
 
   def self.arrange_parameters(url_parameters)

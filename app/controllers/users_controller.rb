@@ -52,13 +52,15 @@ class UsersController < ApplicationController
         }
       )
 
-      representative        = Legislator.new(json: legislators, chamber: :lower)
-      senator               = Legislator.new(json: legislators, chamber: :upper)
-      @user_profile.house_district  = representative.district
-      @user_profile.senate_district = senator.district
-      @user_profile.state           = representative.state
-      @user_profile.representative  = representative.full_name
-      @user_profile.senator         = senator.full_name
+      if legislators
+        representative        = Legislator.new(json: legislators, chamber: :lower)
+        senator               = Legislator.new(json: legislators, chamber: :upper)
+        @user_profile.house_district  = representative.district
+        @user_profile.senate_district = senator.district
+        @user_profile.state           = representative.state
+        @user_profile.representative  = representative.full_name
+        @user_profile.senator         = senator.full_name
+      end
     end
   end
 end
