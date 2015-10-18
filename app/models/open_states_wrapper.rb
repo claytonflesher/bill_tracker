@@ -7,8 +7,10 @@ class OpenStatesWrapper
     parameters = arrange_parameters(url_parameters)
     url        = call_types(parameters: parameters)[call_type]
     query      = uri + url
-    JSON.parse(open(query).read)
+    return JSON.parse(open(query).read)
   rescue OpenURI::HTTPError
+    Rails.logger.warn "#{Time.current}: Request couldn't be completed. The Open States API is down."
+    return nil
   end
 
   def self.arrange_parameters(url_parameters)
