@@ -38,4 +38,12 @@ namespace :update_users do
       profile.save!
     end
   end
+
+  desc "Downcase user names"
+  task downcase: :environment do
+    User.find_each do |user|
+      user.email.downcase!
+      user.save!
+    end
+  end
 end
