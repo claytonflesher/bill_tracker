@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
   def create
     @user = User.where(
       "email = ? AND verified_at IS NOT NULL", 
-      params[:email]
+      params[:email].downcase
     ).first
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
