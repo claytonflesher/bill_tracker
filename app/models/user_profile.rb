@@ -5,20 +5,5 @@ class UserProfile < ActiveRecord::Base
   validates :address,
             presence: true
 
-  validates :house_district,
-            presence: true
-
-  validates :senate_district,
-            presence: true
-
-  validates :state,
-            presence: true
-
-  validates :representative,
-            presence: true
-
-  validates :senator,
-            presence: true
-
   belongs_to :user
 end
