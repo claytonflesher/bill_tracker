@@ -83,11 +83,16 @@ GEM
     factory_girl_rails (4.5.0)
       factory_girl (~> 4.5.0)
       railties (>= 3.0.0)
+    faraday (0.9.1)
+      multipart-post (>= 1.2, < 3)
+    faraday_middleware (0.10.0)
+      faraday (>= 0.7.4, < 0.10)
     font-awesome-rails (4.4.0.0)
       railties (>= 3.2, < 5.0)
     geocoder (1.2.9)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    hashie (2.1.2)
     i18n (0.7.0)
     jbuilder (2.3.1)
       activesupport (>= 3.0.0, < 5)
@@ -108,11 +113,15 @@ GEM
     mini_portile (0.6.2)
     minitest (5.8.0)
     multi_json (1.11.2)
+    multipart-post (2.0.0)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (2.9.2)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
+    openstates (0.0.1)
+      faraday_middleware
+      hashie
     pg (0.18.2)
     pry (0.10.1)
       coderay (~> 1.1.0)
@@ -235,6 +244,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   nokogiri (~> 1.6.6.2)
+  openstates (~> 0.0.1)
   pg
   pry-rails
   rails (= 4.2.3)

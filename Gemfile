@@ -30,6 +30,9 @@ gem 'geocoder', '~> 1.2.9'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+# User openstates gem to get profile data
+gem 'openstates', '~> 0.0.1'
+
 # Use Nokogiri to parse HTML
 gem 'nokogiri', '~> 1.6.6.2'
 
