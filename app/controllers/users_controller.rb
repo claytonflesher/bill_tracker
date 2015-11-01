@@ -44,22 +44,14 @@ class UsersController < ApplicationController
       @user_profile.latitude  = geo_coordinates[0]
       @user_profile.longitude = geo_coordinates[1]
 
-      legislators     = OpenStatesWrapper.call(
-        call_type: :geo_lookup, 
-        url_parameters: { 
-          "lat"  => @user_profile.latitude, 
-          "long" => @user_profile.longitude 
-        }
-      )
+      legislators = OpenStates::Legislator.by_location(@user_profile.latitude, @user_profile.longitude)
 
-      if legislators
-        representative        = Legislator.new(json: legislators, chamber: :lower)
-        senator               = Legislator.new(json: legislators, chamber: :upper)
-        @user_profile.house_district  = representative.district
-        @user_profile.senate_district = senator.district
-        @user_profile.state           = representative.state
-        @user_profile.representative  = representative.full_name
-        @user_profile.senator         = senator.full_name
+      unless legislators.empty?
+        @user_profile.house_district  = legislators.first.district
+        @user_profile.senate_district = legislators.last.district
+        @user_profile.state           = legislators.first.state
+        @user_profile.representative  = legislators.first.full_name
+        @user_profile.senator         = legislators.last.full_name
       end
     end
   end
