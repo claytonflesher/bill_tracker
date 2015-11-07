@@ -53,3 +53,8 @@ end
 
 # Silence Geocoder
 Geocoder.configure(logger: Logger.new("/dev/null"))
+
+# Silence Openstates
+OpenStates.configure do |config|
+  config.logger = Logger.new("/dev/null")
+end
