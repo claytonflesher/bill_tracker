@@ -29,7 +29,7 @@
                     <div class="form-group">
                       <div class="col-md-12">
                         <h4><%= label_tag :email, "Email Address" %></h4>
-                        <%= text_field_tag :email, nil, class: "form-control input-lg" %>
+                        <%=h text_field_tag :email, nil, class: "form-control input-lg" %>
                       </div>
                     </div>
                   </div>
@@ -38,7 +38,7 @@
                       <div class="col-md-12">
                         <%= link_to "Forgot Password", reset_password_path, class: "pull-right" %>
                         <h4><%= label_tag :password, "Password" %></h4>
-                        <%= password_field_tag :password, nil, class: "form-control input-lg" %>
+                        <%=h password_field_tag :password, nil, class: "form-control input-lg" %>
                       </div>
                     </div>
                   </div>
