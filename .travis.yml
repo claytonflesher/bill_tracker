@@ -1,10 +1,10 @@
-before_install:
-  - sudo apt-get update -qq
-  - sudo apt-get install -y libxml2-dev
-
 language: ruby
 rvm:
   - "2.2.3"
 
 services:
-    - postgresql
+  - postgresql
+
+before_script:
+  - psql -c 'create database bill_tracker_test;' -U postgres 
+  - bin/rake db:migrate
