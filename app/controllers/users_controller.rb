@@ -54,5 +54,6 @@ class UsersController < ApplicationController
         @user_profile.senator         = legislators.last.full_name
       end
     end
+    rescue Faraday::ClientError
   end
 end
