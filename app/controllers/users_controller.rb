@@ -47,7 +47,6 @@ class UsersController < ApplicationController
       legislators = OpenStates::Legislator.by_location(@user_profile.latitude, @user_profile.longitude)
 
       unless legislators.empty?
-        p "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
         @user_profile.house_district  = legislators.first.district
         @user_profile.senate_district = legislators.last.district
         @user_profile.state           = legislators.first.state
