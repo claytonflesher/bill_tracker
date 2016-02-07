@@ -1,0 +1,69 @@
+<section class="page-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <ul class="breadcrumb">
+          <li><%= link_to "Home", root_path %></li>
+          <li class="active">Contact Us</li>
+          <li><%= link_to "About Us", contact_us_path %></li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Contact Us</h1>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <%= form_tag id: "contactForm" do %>
+        <div class="row">
+          <div class="form-group">
+            <div class="col-md-6">
+              <%= label_tag :name, "Your name *" %>
+              <%= text_field_tag :name, nil, class: "form-control" %>
+            </div>
+            <div class="col-md-6">
+              <%= label_tag :email, "Your email address *" %>
+              <%= email_field_tag :email, nil, class: "form-control" %>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group">
+            <div class="col-md-12">
+              <%= label_tag :subject, "Subject" %>
+              <%= text_field_tag :subject, nil, class: "form-control" %>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group">
+            <div class="col-md-12">
+              <%= label_tag :message, "Message" %>
+              <%= text_area_tag :message, nil, class: "form-control" %>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <%= submit_tag "Send Message", class: "btn btn-primary btn-lg mb-xlg" %>
+          </div>
+        </div>
+        <% end %>
+    </div>
+    <div class="col-md-6">
+      <h4 class="heading-primary mt-lg">Get in <strong>Touch</strong></h4>
+      <p>You can contact us here by email, or on Facebook or Twitter by clicking the links above.</p>
+      <hr>
+      <h4 class="heading-primary">Other <strong>Contacts</strong></h4>
+      <ul class="list list-icons list-dark mt-xlg">
+        <li><i class="fa fa-facebook"></i><%= link_to("Facebook", "http://www.facebook.com/billscribeok") %></li>
+        <li><i class="fa fa-twitter"></i><%= link_to("Twitter", "http://www.twitter.com/claytonflesher") %></li>
+      </ul>
+    </div>
+  </div>
+</div>
