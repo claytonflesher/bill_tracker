@@ -19,6 +19,9 @@
 
 # Learn more: http://github.com/javan/whenever
 
+
+job_type :rake,  "cd :path && /usr/local/bin/chruby-exec ruby-2.3.0 -- bin/rake -e :environment ':task' :output"
+
 every 10.minutes do
   rake "bill_status:email_updates"
 end
