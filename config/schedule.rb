@@ -22,7 +22,7 @@
 
 job_type :rake,  "cd :path && /usr/local/bin/chruby-exec ruby-2.2.3 -- bin/rake -e :environment ':task' :output"
 
-set :job_template, "bash -l -c 'export PATH=/bin:/usr/bin:/usr/local/bin; source /usr/local/share/chruby/chruby.sh; :job'"
+set :job_template, "bash -l -c 'export SHELL=/bin/bash; export PATH=/bin:/usr/bin:/usr/local/bin; source /usr/local/share/chruby/chruby.sh; :job'"
 
 every 10.minutes do
   rake "bill_status:email_updates"
