@@ -20,7 +20,7 @@
 # Learn more: http://github.com/javan/whenever
 
 
-job_type :rake,  "cd :path && /usr/local/bin/chruby-exec ruby-2.3.0 -- bin/rake -e :environment ':task' :output"
+job_type :rake,  "cd :path && /usr/local/bin/chruby-exec ruby-2.2.3 -- bin/rake -e :environment ':task' :output"
 set :job_template, "bash -l -i -c ':job'"
 
 every 10.minutes do
