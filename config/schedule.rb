@@ -20,7 +20,7 @@
 # Learn more: http://github.com/javan/whenever
 
 
-job_type :rake,  "cd :path && /usr/local/bin/chruby-exec ruby-2.2.3 -- bin/rake -e RACK_ENV=:environment ':task' :output"
+job_type :rake,  "cd :path && /usr/local/bin/chruby-exec ruby-2.2.3 -- bin/rake RACK_ENV=:environment ':task' :output"
 
 set :job_template, "bash -l -c 'export SHELL=/bin/bash; export PATH=/bin:/usr/bin:/usr/local/bin; source /usr/local/share/chruby/chruby.sh; :job'"
 
