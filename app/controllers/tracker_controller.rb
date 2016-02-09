@@ -3,7 +3,7 @@ class TrackerController < ApplicationController
   def index
     @user  = User.find(session[:user_id])
     @bill  = Bill.new
-    @bills = @user.bills.order(created_at: :desc).paginate(page: params[:page], per_page: 5)
+    @bills = @user.bills.order(created_at: :desc).paginate(page: params[:page], per_page: 10)
   end
 
   def create
