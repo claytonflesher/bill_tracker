@@ -11,4 +11,11 @@ class Bill < ActiveRecord::Base
   validates :description,
             presence: true
 
+  def last_action
+    if description[-4] =~ /\A.{2,}\z/
+      description[-4]
+    else
+      description[-3]
+    end
+  end
 end
