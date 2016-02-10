@@ -16,7 +16,6 @@ class ApplicationController < ActionController::Base
 
   def ensure_not_signed_in
     if current_user
-      flash[:alert] = "Please sign out."
       redirect_to tracker_path
     end
   end
