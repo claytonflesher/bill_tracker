@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-  default from: "claytonflesher@gmail.com"
+  default from: "admin@mail.billscribe.com"
 
   def verify(user)
     @user = user
