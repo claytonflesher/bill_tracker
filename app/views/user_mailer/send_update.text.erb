@@ -1,3 +1,5 @@
 <%= @bill.name %> has a status change!
 
 It's most recent action is <%= @bill.last_action %>
+
+Click <%= link(url: "http:://www.oklegislature.gov/BillInfo.asp?Bill=#{@bill.name}", text: 'here') %> to see it's page on the Oklahoma Legislature website.
