@@ -2,4 +2,4 @@
 
 It's most recent action is <%= @bill.last_action %>
 
-Click <%= link(url: "http:://www.oklegislature.gov/BillInfo.asp?Bill=#{@bill.name}", text: 'here') %> to see it's page on the Oklahoma Legislature website.
+Click <%= link_to 'here', "http:://www.oklegislature.gov/BillInfo.asp?Bill=#{@bill.name}" %> to see it's page on the Oklahoma Legislature website.
