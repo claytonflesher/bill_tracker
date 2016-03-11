@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1><%= @bill.name %> has a status change!</h1>
+    <p>
+    The most recent action for <%= @bill.name %> is <%= @bill.last_action %>.<br>
+    </p>
+    <p>
+    Click <%= link_to 'here', "http://www.oklalegislature.gov/BillInfo.aspx?Bill=#{@bill.name}" %> to see it's page on the Oklahoma Legislature website.
+    </p>
+  </body>
+</html>
