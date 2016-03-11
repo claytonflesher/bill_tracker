@@ -66,12 +66,12 @@
           <h4>Your current subscriptions:</h4>
           <% @bills.each do |bill| %>
             <section class="call-to-action call-to-action-<%= cycle(
-              "primary", "secondary", "tertiary", "quaternary") %> mb-xl">
+              "secondary", "tertiary", "quaternary", "light") %> mb-xl">
               <div class="call-to-action-content">
                 <h3><strong>Bill Number: <%= bill.name %></strong></h3>
                 <p><strong>Most recent action: <%= bill.last_action %></strong></p> 
                 <p><strong>on <%= bill.description[-2] %></strong></p>
-                <p><strong><%= link_to "Link to bill's page", "http://www.oklegislature.gov/BillInfo.aspx?Bill=#{bill.name}" %></strong></p>
+                <p><%= link_to "Link to bill's page", "http://www.oklegislature.gov/BillInfo.aspx?Bill=#{bill.name}" %></strong></p>
               </div>
               <div class="call-to-action-btn">
                 <%= button_to "Unsubscribe", { 
